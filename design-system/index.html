@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seven Go Design System</title>
+<link rel="icon" href="assets/favicon.png" />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="components.css" />
+<style>
+  .ds-nav-wrap { position: sticky; top: 16px; z-index: 10; display: flex; justify-content: center; padding-inline: 16px; }
+  .ds-hero { padding-top: 140px; }
+  .ds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; margin-top: 40px; }
+  .swatch { border-radius: 18px; overflow: hidden; border: 1px solid var(--line-dark); background: var(--card-dark); }
+  .section--light .swatch { border-color: var(--line-light); background: #fff; }
+  .swatch__color { height: 88px; }
+  .swatch__meta { padding: 12px 14px; font-size: 11px; line-height: 1.5; }
+  .swatch__meta b { display: block; font-weight: 600; font-size: 12px; }
+  .swatch__meta code { color: var(--text-muted-dark); font-size: 10px; }
+  .type-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: baseline; padding-block: 22px; border-bottom: 1px solid var(--line-dark); }
+  .type-row code { font-size: 10px; color: var(--text-muted-dark); }
+  .demo-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 32px; }
+  .box { height: 88px; background: var(--card-dark); border: 1px solid var(--line-dark); display: grid; place-items: center; font-size: 10px; color: var(--text-muted-dark); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .ease-demo { width: 40px; height: 40px; border-radius: 50%; background: var(--grad-brand); transition: transform 1s var(--ease-out); }
+  .ease-track:hover .ease-demo { transform: translateX(min(600px, 60vw)); }
+  .ease-track { padding: 24px; border: 1px dashed var(--line-strong-dark); border-radius: 20px; margin-top: 24px; }
+  @media (max-width: 767px) { .type-row, .two { grid-template-columns: 1fr; } .nav__links { display: none; } }
+</style>
+</head>
+<body>
+<div class="ds-nav-wrap">
+  <nav class="nav__pill">
+    <a class="nav__logo" href="#"><img src="assets/logo-sevengo-branco.png" alt="Seven Go" /><span class="logo-sub">Marketing Digital</span></a>
+    <div class="nav__links"><a href="#cores">Cores</a><a href="#tipo">Tipografia</a><a href="#comp">Componentes</a><a href="#mov">Movimento</a></div>
+    <a class="btn btn--primary btn--sm" href="#comp">Componentes <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </nav>
+</div>
+
+<header class="section section--dark ds-hero" style="margin-top:-56px">
+  <div class="container">
+    <p class="label blue reveal">Design System · V1</p>
+    <h1 class="display reveal" style="margin-top:16px">Crescimento é <span class="blue">construído.</span></h1>
+    <div class="head" style="margin-top:32px">
+      <div class="bigword bigword--dark"><span class="bigword__text">SISTEMA</span></div>
+      <p class="head__p">Tokens, tipografia e componentes extraídos do site V1 da Seven Go (<code>src/</code>). Fonte única: Montserrat. Base escura #07090C, accent azul do símbolo GO.</p>
+    </div>
+  </div>
+</header>
+
+<section id="cores" class="section section--darker">
+  <div class="container">
+    <div class="head"><h2 class="h2">Cores</h2><p class="head__p">Fundos escuros com seções claras intercaladas. O azul é o único accent: linhas ativas, foco, ícones abertos e o gradiente dos CTAs.</p></div>
+    <p class="label muted" style="margin-top:56px">Marca</p>
+    <div class="ds-grid" id="sw-brand"></div>
+    <p class="label muted" style="margin-top:48px">Fundos & superfícies</p>
+    <div class="ds-grid" id="sw-bg"></div>
+    <p class="label muted" style="margin-top:48px">Texto & linhas</p>
+    <div class="ds-grid" id="sw-text"></div>
+  </div>
+</section>
+
+<section id="tipo" class="section section--dark">
+  <div class="container">
+    <div class="head"><h2 class="h2">Tipografia</h2><p class="head__p">Montserrat 300–700. Títulos em 500 com tracking negativo; labels em 700 caixa-alta com 0.18em; corpo em 15px / 1.6.</p></div>
+    <div style="margin-top:48px; border-top:1px solid var(--line-dark)">
+      <div class="type-row"><code>Bigword · --fs-bigword · 400</code><span class="bigword__text" style="color:var(--bigword-on-dark)">MÉTODO</span></div>
+      <div class="type-row"><code>Odômetro · 120–180px · 300</code><span style="font-size:var(--fs-odometer);font-weight:300;letter-spacing:-.05em;line-height:1.1">07</span></div>
+      <div class="type-row"><code>Acordeão · 38–80px · 400</code><span style="font-size:var(--fs-accordion);letter-spacing:-.03em;line-height:1.05">Tráfego pago</span></div>
+      <div class="type-row"><code>Display · 40–72px · 500</code><span class="display">Diagnóstico gratuito</span></div>
+      <div class="type-row"><code>H2 · 34–54px · 500</code><span class="h2">O problema não é o anúncio</span></div>
+      <div class="type-row"><code>H3 · 20–28px · 500</code><span class="h3">Investimento sem rastreio</span></div>
+      <div class="type-row"><code>CTA strip · 20–24px · 500</code><span style="font-size:var(--fs-cta);font-weight:500">Vamos construir o seu sistema?</span></div>
+      <div class="type-row"><code>Body · 15px · 400</code><span>Aquisição, criativos, páginas e acompanhamento como um único sistema.</span></div>
+      <div class="type-row"><code>Small · 13px · 400</code><span style="font-size:13px;color:var(--white-82)">Parágrafo lateral do layout título + aside.</span></div>
+      <div class="type-row"><code>Desc · 12px · 400</code><span style="font-size:12px;color:var(--white-82)">Descrição de itens de lista e acordeão.</span></div>
+      <div class="type-row"><code>Label · 10px · 700 · 0.18em</code><span class="label">Nossos serviços</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="comp" class="section section--darker">
+  <div class="container">
+    <div class="head"><h2 class="h2">Componentes</h2><p class="head__p">Botões pílula com círculo e seta ↗ que gira 45° no hover, cards com raio 24px, campos sublinhados e listas com linha azul que corre no hover.</p></div>
+
+    <p class="label muted" style="margin-top:56px">Botões</p>
+    <div class="demo-row">
+      <a class="btn btn--primary" href="#">Quero meu diagnóstico <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="btn btn--secondary" href="#">Ver cases <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="btn btn--primary btn--sm" href="#">Falar agora <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="btn btn--secondary btn--sm" href="#">Small secundário <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+
+    <p class="label muted" style="margin-top:48px">Tags</p>
+    <div class="demo-row"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">TikTok Ads</span><span class="tag">LinkedIn Ads</span></div>
+
+    <p class="label muted" style="margin-top:48px">Card + formulário</p>
+    <div class="two">
+      <div class="card">
+        <h3 style="font-size:17px;font-weight:500">Solicite o diagnóstico</h3>
+        <div style="display:grid;gap:20px;margin-top:24px">
+          <div class="field"><label>Nome</label><input placeholder="Seu nome" /></div>
+          <div class="field has-error"><label>WhatsApp</label><input placeholder="(48) 9 9999-9999" /><span class="field__error">Informe um telefone válido.</span></div>
+          <a class="btn btn--primary btn--block" href="#">Enviar <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </div>
+      </div>
+      <div class="card card--light">
+        <p class="label" style="color:var(--blue-700)">Card claro</p>
+        <h3 class="h3" style="margin-top:12px">Superfície branca em seção clara</h3>
+        <p style="margin-top:8px;font-size:13px;color:var(--text-muted-light)">Raio 24px, borda --line-light, sombra suave.</p>
+        <div class="progress" style="margin-top:24px"><span style="transform:scaleX(.6)"></span></div>
+      </div>
+    </div>
+
+    <p class="label muted" style="margin-top:56px">Acordeão</p>
+    <div style="margin-top:24px" id="acc">
+      <div class="acc__item is-open"><button class="acc__trigger"><span class="acc__title">Tráfego pago</span><span class="acc__icon"><span></span><span></span></span></button>
+        <div class="acc__body"><p class="acc__desc">Campanhas estruturadas para gerar oportunidade de venda, não só cliques.</p><ul class="acc__tags"><li class="tag">Google</li><li class="tag">Meta</li></ul></div></div>
+      <div class="acc__item"><button class="acc__trigger"><span class="acc__title">Criativos</span><span class="acc__icon"><span></span><span></span></span></button>
+        <div class="acc__body"><p class="acc__desc">Peças pensadas para cada etapa do funil.</p><ul class="acc__tags"><li class="tag">Vídeo</li><li class="tag">Estático</li></ul></div></div>
+      <div class="acc__item"><button class="acc__trigger"><span class="acc__title">Sites</span><span class="acc__icon"><span></span><span></span></span></button>
+        <div class="acc__body"><p class="acc__desc">Landing pages rápidas e mensuráveis.</p><ul class="acc__tags"><li class="tag">Landing page</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="bigword bigword--light"><span class="bigword__text">PROBLEMA</span></div>
+    <div class="head" style="margin-top:24px"><h2 class="h2">Lista com hover</h2><p class="head__p">Número + título + descrição alinhada à coluna --aside. Linha azul cresce da esquerda; título desliza 8px.</p></div>
+    <ul class="row-list" style="margin-top:48px">
+      <li class="row"><span class="row__num">01</span><h3 class="row__title">Anúncio sem estratégia</h3><p class="row__desc">Verba investida sem objetivo claro de negócio.</p></li>
+      <li class="row"><span class="row__num">02</span><h3 class="row__title">Página que não converte</h3><p class="row__desc">Tráfego chega, mas não vira contato.</p></li>
+      <li class="row"><span class="row__num">03</span><h3 class="row__title">Nenhum acompanhamento</h3><p class="row__desc">Sem dados, sem decisão.</p></li>
+    </ul>
+    <div class="cta-strip" style="margin-top:56px"><p class="cta-strip__text">Faixa de CTA em seção clara.</p><a class="btn btn--primary" href="#">Começar <span class="btn__icon"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+  </div>
+</section>
+
+<section id="mov" class="section section--dark">
+  <div class="container">
+    <div class="head"><h2 class="h2">Raios, sombras & movimento</h2><p class="head__p">Easing único <code>cubic-bezier(0.22, 1, 0.36, 1)</code>. Reveal: fade + 24px + blur 6px→0 em 0.8s, stagger 0.08s. Respeita prefers-reduced-motion.</p></div>
+    <div class="ds-grid">
+      <div class="box" style="border-radius:2px">2px · barras</div>
+      <div class="box" style="border-radius:10px">10px</div>
+      <div class="box" style="border-radius:18px">18px</div>
+      <div class="box" style="border-radius:20px">20px</div>
+      <div class="box" style="border-radius:24px">24px · card</div>
+      <div class="box" style="border-radius:999px">999px · pílula</div>
+    </div>
+    <div class="ds-grid">
+      <div class="box" style="border-radius:20px;box-shadow:var(--shadow-btn)">shadow-btn</div>
+      <div class="box" style="border-radius:20px;box-shadow:var(--shadow-card)">shadow-card</div>
+      <div class="box" style="border-radius:20px;box-shadow:var(--glow-lg);border-color:var(--blue-400)">glow-lg</div>
+    </div>
+    <div class="ease-track"><p class="label muted" style="margin-bottom:12px">Passe o mouse · ease-out</p><div class="ease-demo"></div></div>
+    <div class="cta-strip" style="margin-top:56px"><p class="cta-strip__text">Seven Go · Design System V1</p><img src="assets/simbolo-go.png" alt="" style="height:36px;width:auto" /></div>
+  </div>
+</section>
+
+<script>
+  const sw = (id, list) => document.getElementById(id).innerHTML = list.map(([n, v, bg]) =>
+    `<div class="swatch"><div class="swatch__color" style="background:${bg || `var(${n})`}"></div><div class="swatch__meta"><b>${n}</b><code>${v}</code></div></div>`).join('');
+  sw('sw-brand', [['--blue-400','#1E9BE0'],['--blue-500','#1587CC'],['--blue-700','#0A5E94'],['--blue-900','#034A76'],['--grad-brand','#0A5E94 → #1893D8'],['--grad-brand-hover','#1473B2 → #36AAEC'],['--error','#F06A6A']]);
+  sw('sw-bg', [['--bg-900','#07090C'],['--bg-850','#0A0D11'],['--card-dark','#0D1116'],['--surface-icon','#1D232B'],['--bigword-on-dark','#262C35'],['--bg-light','#EDF0F3'],['--bigword-on-light','#C9D0D8'],['--card-light','#FFFFFF']]);
+  sw('sw-text', [['--text-white','#F4F6F8'],['--text-muted-dark','#8A929C'],['--text-dim-dark','#5B636D'],['--text-black','#0B0E12'],['--text-muted-light','#6B737D'],['--text-inactive-light','#B3BAC2'],['--line-dark','rgba(255,255,255,.08)'],['--line-light','rgba(0,0,0,.08)']]);
+
+  document.querySelectorAll('.acc__trigger').forEach(b => b.addEventListener('click', () => {
+    const item = b.parentElement, open = item.classList.contains('is-open');
+    document.querySelectorAll('.acc__item').forEach(i => i.classList.remove('is-open'));
+    if (!open) item.classList.add('is-open');
+  }));
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: .25 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i * 0.08) + 's'; io.observe(el); });
+</script>
+</body>
+</html>

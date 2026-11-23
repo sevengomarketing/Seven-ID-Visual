@@ -1,0 +1,119 @@
+/* =========================================================
+   SEVEN GO — DESIGN SYSTEM V1 · TOKENS
+   Extraído de src/styles/tokens.css + valores recorrentes
+   das seções do site V1.
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- Cor · Fundos ---------- */
+  --bg-900: #07090c;        /* preto principal */
+  --bg-850: #0a0d11;        /* preto levemente azulado (seções "darker") */
+  --bg-light: #edf0f3;      /* seções claras */
+  --card-dark: #0d1116;
+  --card-light: #ffffff;
+  --surface-icon: #1d232b;  /* círculo do botão secundário */
+
+  /* ---------- Cor · Texto ---------- */
+  --text-white: #f4f6f8;
+  --text-muted-dark: #8a929c;
+  --text-dim-dark: #5b636d;
+  --text-black: #0b0e12;
+  --text-muted-light: #6b737d;
+  --text-inactive-light: #b3bac2; /* etapas inativas (Método) */
+  --text-num-light: #9aa2ab;
+
+  /* Opacidades do branco usadas no site */
+  --white-82: rgba(244, 246, 248, 0.82); /* parágrafos em fundo escuro */
+  --white-70: rgba(244, 246, 248, 0.7);
+  --white-40: rgba(244, 246, 248, 0.4);  /* títulos inativos (acordeão) */
+
+  /* ---------- Cor · Marca (gradiente do logo GO) ---------- */
+  --blue-400: #1e9be0;  /* accent principal, foco, linhas ativas */
+  --blue-500: #1587cc;  /* seleção de texto */
+  --blue-700: #0a5e94;
+  --blue-900: #034a76;  /* seta do botão primário */
+  --grad-brand: linear-gradient(90deg, #0a5e94 0%, #1893d8 100%);
+  --grad-brand-hover: linear-gradient(90deg, #1473b2 0%, #36aaec 100%);
+
+  /* ---------- Cor · Feedback ---------- */
+  --error: #f06a6a;
+
+  /* ---------- Palavras gigantes ---------- */
+  --bigword-on-dark: #262c35;
+  --bigword-on-light: #c9d0d8;
+
+  /* ---------- Linhas ---------- */
+  --line-dark: rgba(255, 255, 255, 0.08);
+  --line-light: rgba(0, 0, 0, 0.08);
+  --line-input: rgba(255, 255, 255, 0.14);
+  --line-strong-dark: rgba(255, 255, 255, 0.18);
+
+  /* ---------- Raios ---------- */
+  --radius-xs: 2px;      /* barras de progresso */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 20px;
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* ---------- Sombras ---------- */
+  --shadow-btn: 0 8px 24px -10px rgba(30, 155, 224, 0.55);
+  --shadow-btn-hover: 0 10px 30px -10px rgba(30, 155, 224, 0.75);
+  --shadow-card: 0 30px 80px -40px rgba(0, 0, 0, 0.8);
+  --shadow-card-stack: 0 -20px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-card-light: 0 10px 30px -18px rgba(11, 14, 18, 0.25);
+  --glow-sm: 0 0 8px rgba(30, 155, 224, 0.8);
+  --glow-md: 0 0 12px rgba(30, 155, 224, 0.6);
+  --glow-lg: 0 0 16px rgba(30, 155, 224, 0.6);
+
+  /* ---------- Layout ---------- */
+  --container: 1040px;
+  --gutter: 24px;
+  --aside: 340px; /* coluna direita de "título + parágrafo" */
+  --nav-width: 830px;
+  --section-pad: clamp(96px, 11vw, 150px);
+  --section-pad-top: clamp(64px, 8vw, 110px);
+
+  /* ---------- Tipografia ---------- */
+  --font: 'Montserrat', sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-body: 15px;
+  --fs-sm: 13px;      /* parágrafos laterais, botões, links do nav */
+  --fs-xs: 12px;      /* descrições */
+  --fs-2xs: 11px;     /* labels de campos, steps */
+  --fs-label: 10px;   /* eyebrow / tags */
+  --fs-micro: 9px;    /* numeração */
+
+  --fs-h3: clamp(20px, 2vw, 28px);
+  --fs-cta: clamp(20px, 1.8vw, 24px);
+  --fs-h2: clamp(34px, 3.7vw, 54px);
+  --fs-display: clamp(40px, 5vw, 72px);
+  --fs-accordion: clamp(38px, 5.2vw, 80px);
+  --fs-odometer: clamp(120px, 13vw, 180px);
+  --fs-bigword: min(clamp(96px, 11.5vw, 176px), calc((100vw - 2 * var(--gutter)) / 5.3));
+
+  --lh-tight: 1.05;
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+  --ls-tight: -0.02em;
+  --ls-label: 0.18em;
+
+  /* ---------- Movimento ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.35s;
+  --dur-slow: 0.6s;
+  --dur-reveal: 0.8s;
+  --stagger: 0.08s;
+}
+
+@media (max-width: 767px) {
+  :root { --gutter: 20px; }
+}
